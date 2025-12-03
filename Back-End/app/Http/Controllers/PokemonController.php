@@ -11,7 +11,7 @@ class PokemonController extends Controller
 {
     public function list()
     {
-        $pokemon = Pokemon::all();
+        $pokemon = Pokemon::select('id', 'name_english', 'image')->get();
 
         return response()->json($pokemon, 200);
     }

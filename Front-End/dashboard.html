@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div>
+        <form action="" method="post">
+            <button id="btn-logout">Logout</button>
+            <p style="display: none;" id="message-logout"></p>
+        </form>
+        <button id="btn-get-trainer-data">Ver dados do treinador</button>
+        <pre id="content-data"></pre>
+    </div>
+    
+    <div>
+        <input type="number" name="" id="pokemonId" required>
+        <button id="btn-view-pokemon">Ver Pokemon</button>
+        <p id="pokemon-data"></p>
+        <img src="" alt="" id="pokemon-img">
+    </div>
+
+    <div>
+        <button id="btn-list-pokemon">Listar todos os Pokemon</button>
+        <p id="content-list"></p>
+    </div>
+    
+    <script src="./trainerData.js"></script>
+    <script src="./viewPokemon.js"></script>
+    <script src="./logout.js"></script>
+    <script src="./listPokemon.js"></script>
+</body>
+</html>
