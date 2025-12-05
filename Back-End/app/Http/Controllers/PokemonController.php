@@ -11,7 +11,7 @@ class PokemonController extends Controller
 {
     public function list()
     {
-        $pokemon = Pokemon::select('id', 'name_english', 'image')
+        $pokemon = Pokemon::with('types')->select('id', 'name_english', 'image')
         ->orderBy('id')
         ->paginate(10);
 
@@ -27,7 +27,7 @@ class PokemonController extends Controller
             return response()->json($validator->errors());
         }
 
-        $pokemon = Pokemon::find($request->id);
+        $pokemon = Pokemon::with('types')->findOrFail($request->id);
 
         return response()->json($pokemon, 200);
     }
