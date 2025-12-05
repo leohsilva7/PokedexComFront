@@ -40,6 +40,7 @@ btnViewPokemon.addEventListener('click', async (event) => {
         <div class="card pokemon pokemon-card shadow-sm h-100 p-3 d-flex flex-column justify-content-center" style="min-height: 70vh;"> 
             <img src="${imageData.hires}" alt="${result.name_english} Sprite" class="card-img-top pokemon-image mx-auto d-block" style="width:240px;height:240px; object-fit:contain"
             <div class="card-body text-center">
+                <p class="card-text text-muted mb-1">${result.id}</p>
                 <h5 class="card-title text-capitalize pokemon-name">${result.name_english}</h5>
                 <div class="pokemon-type mt-1 mb-1">${typesBadges}</div>
                 <p class="card-text text-muted mb-1">${result.description}</p>
