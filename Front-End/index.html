@@ -3,20 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Pokedex</title>
+    <title>Login Pokedéx</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <main class="container">
+        <h1>Login</h1>
         <form action="" method="post">
-            <label for="username-id">Username: </label>
-            <input type="text" name="" id="username-id" required>
-            <label for="password-id">Password: </label>
-            <input type="password" name="" id="password-id" required>
-            <button id="btn-go">Logar</button>
+            <fieldset>
+                <legend>Suas Informações de Acesso</legend>
+
+                <div>
+                    <label class="col-sm-2 col-form-label"  for="username-id">Username: </label>
+                    <input class="form-control" type="text" name="" id="username-id" required>
+                </div>
+                
+                <div>
+                    <label class="col-sm-2 col-form-label" for="password-id">Password: </label>
+                    <input class="form-control" type="password" name="" id="password-id" required>
+                </div>
+                <button class="btn btn-primary my-3" id="btn-go">Logar</button>
+            </fieldset>
         </form>
         <p>Não tem uma conta? <a href="./register.html">Clique Aqui!</a></p>
     </main>
-
-    <script src="./login.js"></script>
+    <footer class="mt-auto" style="display: flex; align-items: center; justify-content: center; background-color: gray; padding: 20px; text-align: center;">
+        <p>Feito por Léo Henrique &copy;2025</p>
+    </footer>
+    <script src="./js/login.js"></script>
 </body>
 </html>

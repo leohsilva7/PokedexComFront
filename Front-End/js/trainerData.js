@@ -1,4 +1,3 @@
-const btnTrainerData = document.getElementById('btn-get-trainer-data');
 const contentTrainer = document.getElementById('content-data');
 
 // Trainer Data
@@ -24,15 +23,20 @@ async function getTrainerData() {
             throw new Error(`Erro ao buscar dados: ${response.status}`);
         }
         const data = await response.json();
-        contentTrainer.textContent = `${JSON.stringify(data, undefined, 2)}`;
         return data;
     }
     catch(error){
         console.error('Falha na requisição protegida.', error.message);
     }
 }
-btnTrainerData.addEventListener('click', (event) => {
-    event.preventDefault();
-    getTrainerData();
+async function initApp() {
+    const result = await getTrainerData();
+    contentTrainer.innerHTML = `<li>Nome: ${result.name}</li>`;
+    contentTrainer.innerHTML += `<li>Sobrenome: ${result.lastname}</li>`;
+    contentTrainer.innerHTML += `<li>Data de Nascimento: ${result.birthdate}</li>`
+    contentTrainer.innerHTML += `<li>Cidade de Nascimento: ${result.city}</li>`
+    contentTrainer.innerHTML += `<li>Nome de Usuário: ${result.username}</li>`
     contentTrainer.classList.toggle('remove');
-})
+}
+initApp();
+    

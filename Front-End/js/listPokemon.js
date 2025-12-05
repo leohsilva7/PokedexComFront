@@ -1,4 +1,3 @@
-const btnList = document.getElementById('btn-list-pokemon');
 const contentList = document.getElementById('content-list');
 
 async function listPokemon() {
@@ -28,8 +27,7 @@ async function listPokemon() {
         console.error('Falha ao fazer requisição!', error.message);
     }
 }
-btnList.addEventListener('click', async (event) => {
-    event.preventDefault();
+async function initApp() {
     const result = await listPokemon();
     const pokemonList = result && result.data ? result.data : [];
     const listItems = pokemonList.map((pokemon) => {
@@ -39,9 +37,9 @@ btnList.addEventListener('click', async (event) => {
         const imgPokemon = pokemon.image && pokemon.image.sprite 
                            ? pokemon.image.sprite 
                            : 'placeholder.png';
-        const tipoPrimario = pokemon.type && pokemon.type[0] ? pokemon.type[0] : 'Desconhecido';
-        const tipoSecundario = pokemon.type && pokemon.type[1] ? pokemon.type[1] : '';
-
+        const typesArray = pokemon.types || [];
+    
+        const typesString = typesArray.map(t => t.name_english).join(', ')
         return `
             <div class="pokemon-card">
                 <img src="${imgPokemon}" alt="${nomePokemon} Sprite" class="pokemon-image">
@@ -49,8 +47,8 @@ btnList.addEventListener('click', async (event) => {
                     <p class="pokemon-id">#${idPokemon}</p>
                     <h3 class="pokemon-name">${nomePokemon}</h3>
                     <p class="pokemon-type">Tipo(s): 
-                        <span class="type-badge type-${tipoPrimario.toLowerCase()}">${tipoPrimario}</span>
-                        ${tipoSecundario ? `<span class="type-badge type-${tipoSecundario.toLowerCase()}">${tipoSecundario}</span>` : ''}
+                        <span class="type-badge type"> ${typesString}</span>
+                    
                     </p>
                 </div>
             </div>
@@ -59,4 +57,5 @@ btnList.addEventListener('click', async (event) => {
     const htmlContent = listItems.join('');
     contentList.innerHTML = htmlContent;
     contentList.classList.toggle('remove');
-});
+}
+initApp();

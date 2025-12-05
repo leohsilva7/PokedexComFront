@@ -27,11 +27,10 @@ async function logout() {
             throw new Error(`Erro ao buscar dados: ${response.status}`)
         }
         const data = await response.json();
-        messageLogout.style.display = "flex";
-        messageLogout.textContent = `${JSON.stringify(data, undefined, 2)}`;
+        alert(`${data.message}!`);
         setTimeout(() => {
             window.location.href = './index.html';
-        },1500);
+        },300);
     }
     catch (error){
         console.error(`Falha na requisição!`, error.message);

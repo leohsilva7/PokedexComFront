@@ -1,7 +1,6 @@
 const pokemonInput = document.getElementById('pokemonId');
 const contentPokemon = document.getElementById('pokemon-data');
 const btnViewPokemon = document.getElementById('btn-view-pokemon');
-const pokemonImage = document.getElementById('pokemon-img');
 async function viewPokemon(value) {
     const token = localStorage.getItem('auth_token');
     const url = `http://127.0.0.1:8000/api/pokemon/view?id=${value}`;
@@ -33,9 +32,16 @@ async function viewPokemon(value) {
 btnViewPokemon.addEventListener('click', async (event) => {
     event.preventDefault();
     const result = await viewPokemon(pokemonInput.value);
-    contentPokemon.innerHTML = `<li>${JSON.stringify(result.id)}</li>`;
-    contentPokemon.innerHTML += `<li>${JSON.stringify(result.name_english)}</li>`;
-
     const imageData = result.image;
-    pokemonImage.src = imageData.sprite;
+    const typesArray = result.types;
+    const typesString = typesArray.map(t => t.name_english).join(', ');
+    contentPokemon.innerHTML = 
+    `<div class="pokemon-card"> 
+        <figure class="pokemon-img">
+            <img src="${imageData.sprite}" alt="Imagem do Pokemon">
+            <figcaption><strong>${result.name_english}</strong> </figcaption>
+        </figure>                      
+        <p>Tipos: ${typesString}</p>
+        <p>Descrição: ${result.description}</p>
+    </div>`;
 });
