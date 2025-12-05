@@ -34,4 +34,5 @@ async function getTrainerData() {
 btnTrainerData.addEventListener('click', (event) => {
     event.preventDefault();
     getTrainerData();
+    contentTrainer.classList.toggle('remove');
 })
