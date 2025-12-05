@@ -28,6 +28,7 @@ async function logout() {
         }
         const data = await response.json();
         alert(`${data.message}!`);
+        localStorage.removeItem('auth_token');
         setTimeout(() => {
             window.location.href = './index.html';
         },300);
