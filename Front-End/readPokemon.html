@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ler Pokémon</title>
+
+    <script src="./js/script.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <header class="bg-danger text-white p-3 shadow-sm"></header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+            <div class="container-fluid">
+
+                <a href="#" class="navbar-brand h1 mb-0 fw-bold text-white">Dashboard do Treinador</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+                        <li class="nav-item">
+                            <a href="./dashboard.html" class="nav-link text-white text-decoration-none">Voltar para a Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-decoration-none" href="./viewPokemon.html">Consultar Pokemon</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="btn btn-warning btn-sm fw-bold" href="./trainer.html">Meu Perfil</a>      
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-sm" href="#" id="btn-logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container my-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="card-title text-center mb-4">Ler Pokémon</h2>
+                        <form action="" method="post">
+                            <fieldset class="mb-3">
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Informações</legend>
+                
+                                <div class="mb-3">
+                                    <label class="form-label"  for="pokemon-id">Id: </label>
+                                    <input class="form-control" type="number" name="" id="pokemon-id" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label" for="name_english-id">Nome: </label>
+                                    <input class="form-control" type="text" name="" id="name_english-id" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="type-id">Tipo: </label>
+                                    <input class="form-control" type="text" name="" id="type-id" required>
+                                </div>
+                            </fieldset>
+                            <fieldset class="mb-3">
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Status Base</legend>
+                
+                                <div class="mb-3">
+                                    <label class="form-label"  for="hp-id">HP: </label>
+                                    <input class="form-control" type="number" name="" id="hp-id" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label" for="attack-id">Ataque: </label>
+                                    <input class="form-control" type="number" name="" id="attack-id" required>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label" for="defense-id">Defesa: </label>
+                                    <input class="form-control" type="number" name="" id="defense-id" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="sp-attack-id">Ataque Especial: </label>
+                                    <input class="form-control" type="number" name="" id="sp-attack-id" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="sp-defense-id">Defesa Especial: </label>
+                                    <input class="form-control" type="number" name="" id="sp-defense-id" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label" for="speed-id">Velocidade: </label>
+                                    <input class="form-control" type="number" name="" id="speed-id" required>
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Espécie e Outros</legend>
+                
+                                <div class="mb-3">
+                                    <label class="form-label"  for="specie-id">Espécie: </label>
+                                    <input class="form-control" type="text" name="" id="specie-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="description-id">Descrição: </label>
+                                    <input class="form-control" type="text" name="" id="description-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="prev-evolution-id">Evolução Anterior: </label>
+                                    <input class="form-control" type="text" name="" id="prev-evolution-id">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="next-evolution-id">Evolução Posterior: </label>
+                                    <input class="form-control" type="text" name="" id="next-evolution-id">
+                                </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Perfil e imagem do Pokémon</legend>
+                
+                                <div class="mb-3">
+                                    <label class="form-label"  for="height-id">Altura: </label>
+                                    <input class="form-control" type="number" name="" id="height-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="weight-id">Peso: </label>
+                                    <input class="form-control" type="number" name="" id="weight-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="egg-id">Ovo: </label>
+                                    <input class="form-control" type="text" name="" id="egg-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="ability-id">Habilidade: </label>
+                                    <input class="form-control" type="text" name="" id="ability-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="check-id">Habilidade Check: </label>
+                                    <input type="checkbox" name="" id="check-id">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="genre-id">Gênero: </label>
+                                    <input class="form-control" type="text" name="" id="genre-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"  for="img-id">Url da Imagem: </label>
+                                    <input class="form-control" type="text" name="" id="img-id" required>
+                                </div>
+                            </fieldset>
+                            
+                            <button class="btn btn-primary w-100" id="btn-go">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="mt-auto bg-dark text-white p-3 text-center">
+        <p class="mb-0">Feito por Léo Henrique &copy;2025</p>
+    </footer>
+
+    <script src="./js/readPokemon.js"></script>
+</body>
+</html>

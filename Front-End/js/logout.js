@@ -3,10 +3,6 @@ const messageLogout = document.getElementById('message-logout');
 
 async function logout() {
     const token = localStorage.getItem('auth_token');
-    if (!token){
-        alert('O Token não foi encontrado!');
-        return;
-    }
     const url = `http://127.0.0.1:8000/api/logout`;
     try{
         const response = await fetch (url, {
