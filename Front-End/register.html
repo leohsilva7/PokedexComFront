@@ -7,48 +7,60 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </head>
-<body>
-    <main>
-        <h1>Registrar na Pokedéx</h1>
-        <form action="" method="post">
-            <fieldset>
-                <legend>Informações Pessoais</legend>
-                <div>
-                    <label for="name-id">Nome: </label>
-                    <input type="text" name="" id="name-id" required>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <header class="bg-danger text-white p-3 shadow-sm">
+        <h1 class="h3 mb-0">Registrar na Pokedéx</h1>
+    </header>
+    <main class="container my-5 flex-grow-1">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="card-title text-center mb-4">Registro na Pokedéx</h2>
+                        <form action="" method="post">
+                            <fieldset class="mb-3">
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Informações Pessoais</legend>
+                                <div class="mb-3">
+                                    <label class="form-label" for="name-id">Nome: </label>
+                                    <input class="form-control" type="text" name="" id="name-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="lastname-id">Sobrenome</label>
+                                    <input class="form-control" type="text" name="" id="lastname-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="birthdate-id">Data de nascimento</label>
+                                    <input class="form-control" type="date" name="" id="birthdate-id" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="city-id">Cidade de nascimento: </label>
+                                    <input class="form-control" type="text" id="city-id" required>
+                                </div>
+                            </fieldset>
+                
+                            <fieldset class="mb-3">
+                                <legend class="h5 mb-3 text-secondary border-bottom pb-2">Informações de Acesso</legend>
+                                <div class="mb-3">
+                                    <label class="form-label" for="newusername-id">Nome de usuário: </label>
+                                    <input class="form-control" type="text" id="newusername-id" required>
+                                </div>
+                                <div>
+                                    <label class="form-label" for="newpassword-id">Senha de usuário</label>
+                                    <input class="form-control" type="password" name="" id="newpassword-id" required>
+                                </div>
+                            </fieldset>
+                
+                            <button class="btn btn-primary w-100" id="register-btn">Registrar!</button>
+                        </form>
+                        <p class="text-center mt-3">Ja tem uma conta? <a class="text-decoration-none" href="./index.html">Clique Aqui!</a></p>
+                    </div>
                 </div>
-                <div>
-                    <label for="lastname-id">Sobrenome</label>
-                    <input type="text" name="" id="lastname-id" required>
-                </div>
-                <div>
-                    <label for="birthdate-id">Data de nascimento</label>
-                    <input type="date" name="" id="birthdate-id" required>
-                </div>
-                <div>
-                    <label for="city-id">Cidade de nascimento: </label>
-                    <input type="text" id="city-id" required>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Informações de Acesso</legend>
-                <div>
-                    <label for="newusername-id">Nome de usuário: </label>
-                    <input type="text" id="newusername-id" required>
-                </div>
-                <div>
-                    <label for="newpassword-id">Senha de usuário</label>
-                    <input type="password" name="" id="newpassword-id" required>
-                </div>
-            </fieldset>
-
-            <button id="register-btn">Registrar!</button>
-        </form>
-        <p>Ja tem uma conta? <a href="./index.html">Clique Aqui!</a></p>
+            </div>
+        </div>
+       
     </main>
-    <footer>
-        <p>Feito por Léo Henrique &copy;2025</p>
+    <footer class="mt-auto bg-dark text-white p-3 text-center">
+        <p class="mb-0">Feito por Léo Henrique &copy;2025</p>
     </footer>
     <script src="./js/register.js"></script>
 </body>

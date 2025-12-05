@@ -1,8 +1,10 @@
 const contentList = document.getElementById('content-list');
-
-async function listPokemon() {
+const btnNext = document.getElementById('next-page');
+const btnPast = document.getElementById('past-page');
+let count = 1;
+async function listPokemon(page) {
     const token = localStorage.getItem('auth_token');
-    const url = "http://127.0.0.1:8000/api/pokemon/list";
+    const url = `http://127.0.0.1:8000/api/pokemon/list?page=${page}`;
     try{
         const response = await fetch (url,{
             method: "GET",
@@ -11,7 +13,7 @@ async function listPokemon() {
             "Accept": "application/json",
             "Authorization": `Bearer ${token}`,
             }
-        });
+        }); 
         if (response.status === 401 || response.status === 403){
             console.error('Token inválido ou expirado');
             localStorage.removeItem('auth_token');
@@ -27,35 +29,54 @@ async function listPokemon() {
         console.error('Falha ao fazer requisição!', error.message);
     }
 }
-async function initApp() {
-    const result = await listPokemon();
+async function initApp(numPage) {
+    const result = await listPokemon(numPage);
     const pokemonList = result && result.data ? result.data : [];
     const listItems = pokemonList.map((pokemon) => {
         const idPokemon = pokemon.id || pokemon.pokedex_id || 'N/A';
         const nomePokemon = pokemon.name_english || pokemon.name || 'Nome Desconhecido';
         
-        const imgPokemon = pokemon.image && pokemon.image.sprite 
-                           ? pokemon.image.sprite 
+        const imgPokemon = pokemon.image && pokemon.image.hires
+                           ? pokemon.image.hires
                            : 'placeholder.png';
         const typesArray = pokemon.types || [];
     
-        const typesString = typesArray.map(t => t.name_english).join(', ')
+        const typesBadges = typesArray.map(t => `<span class="badge rounded-pill type-badge bg-${t.name_english.toLowerCase()}">${t.name_english}</span>`).join(' ');
+
         return `
-            <div class="pokemon-card">
-                <img src="${imgPokemon}" alt="${nomePokemon} Sprite" class="pokemon-image">
-                <div class="pokemon-details">
-                    <p class="pokemon-id">#${idPokemon}</p>
-                    <h3 class="pokemon-name">${nomePokemon}</h3>
-                    <p class="pokemon-type">Tipo(s): 
-                        <span class="type-badge type"> ${typesString}</span>
-                    
-                    </p>
+            <li class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card pokemon-card shadow-sm h-100"> 
+                    <img src="${imgPokemon}" alt="${nomePokemon} Sprite" class="card-img-top pokemon-image mx-auto d-block" style="width: 120px; height:120px; object-fit:contain;">
+                    <div class="card-body text-center">
+                        <p class="card-text text-muted mb-1">${idPokemon}</p>
+                        <h5 class="card-title text-capitalize pokemon-name">${nomePokemon}</h5>
+                        <div class="pokemon-type mt-2">${typesBadges}</div>
+                    </div>
                 </div>
-            </div>
+            </li>
         `;
     });
     const htmlContent = listItems.join('');
     contentList.innerHTML = htmlContent;
-    contentList.classList.toggle('remove');
 }
-initApp();
+initApp(count);
+btnNext.addEventListener('click', (event) =>{
+    event.preventDefault();
+    if (count >= 75){
+        count = 1;
+    }
+    else{
+        count ++;
+    }
+    initApp(count);
+});
+btnPast.addEventListener('click', (event) =>{
+    event.preventDefault();
+    if (count <= 1){
+        count = 1;
+    }
+    else{
+        count --;
+    }
+    initApp(count);
+});

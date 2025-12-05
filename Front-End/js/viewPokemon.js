@@ -34,14 +34,16 @@ btnViewPokemon.addEventListener('click', async (event) => {
     const result = await viewPokemon(pokemonInput.value);
     const imageData = result.image;
     const typesArray = result.types;
-    const typesString = typesArray.map(t => t.name_english).join(', ');
+    const typesBadges = typesArray.map(t => `<span class="badge rounded-pill type-badge bg-${t.name_english.toLowerCase()}">${t.name_english}</span>`).join(' ');
     contentPokemon.innerHTML = 
-    `<div class="pokemon-card"> 
-        <figure class="pokemon-img">
-            <img src="${imageData.sprite}" alt="Imagem do Pokemon">
-            <figcaption><strong>${result.name_english}</strong> </figcaption>
-        </figure>                      
-        <p>Tipos: ${typesString}</p>
-        <p>Descrição: ${result.description}</p>
-    </div>`;
+    `<li class="col-12 col-sm-6 col-md-4 col-lg-4 mx-auto" style="list-style:none;"> 
+        <div class="card pokemon pokemon-card shadow-sm h-100 p-3 d-flex flex-column justify-content-center" style="min-height: 70vh;"> 
+            <img src="${imageData.hires}" alt="${result.name_english} Sprite" class="card-img-top pokemon-image mx-auto d-block" style="width:240px;height:240px; object-fit:contain"
+            <div class="card-body text-center">
+                <h5 class="card-title text-capitalize pokemon-name">${result.name_english}</h5>
+                <div class="pokemon-type mt-1 mb-1">${typesBadges}</div>
+                <p class="card-text text-muted mb-1">${result.description}</p>
+            </div>
+        </div>
+    </li>`;
 });

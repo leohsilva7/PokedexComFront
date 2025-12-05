@@ -4,32 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Treinador</title>
-
-    <style>
-        .remove{
-            display: none;
-        }
-    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="./js/script.js"></script>
 </head>
-<body>
-    <header>
-        <h1>Perfil do Treinador</h1>
-        <nav>
-            <form action="" method="post">
-                <a href="#" id="btn-logout">Logout</a>
-            </form>
-            <a href="./viewPokemon.html">Consultar Pokemon</a>
-            <a href="./dashboard.html">Voltar para a Dashboard</a>
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <header class="bg-danger text-white p-3 shadow-sm"></header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger">
+            <div class="container-fluid">
+
+                <a href="#" class="navbar-brand h1 mb-0 fw-bold text-white">Perfil do Treinador</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-3">
+
+                        <li class="nav-item">
+                            <a class="btn btn-warning btn-sm fw-bold" href="./dashboard.html">Voltar para a Dashboard</a>      
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-decoration-none" href="./viewPokemon.html">Consultar Pokemon</a>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-sm" href="#" id="btn-logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-    <main class="container"></main>
-        <section id="section-trainer-data">
-            <ul id="content-data" class="remove"></ul>
+    <main class="container my-5 flex-grow-1 justify-content-center">
+        <h2 class="mb-4 text-danger text-center">Dados do Treinador</h2>
+        <section id="section-trainer-data">    
+            <ul id="content-data" class="row list-unstyled g-1 justify-content-center"></ul>
         </section>
     </main>
+    <footer class="mt-auto bg-dark text-white p-3 text-center">
+        <p class="mb-0">Feito por Léo Henrique &copy;2025</p>
+    </footer>
     <script src="./js/trainerData.js"></script>
     <script src="./js/logout.js"></script>
 </body>

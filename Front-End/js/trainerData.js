@@ -31,12 +31,18 @@ async function getTrainerData() {
 }
 async function initApp() {
     const result = await getTrainerData();
-    contentTrainer.innerHTML = `<li>Nome: ${result.name}</li>`;
-    contentTrainer.innerHTML += `<li>Sobrenome: ${result.lastname}</li>`;
-    contentTrainer.innerHTML += `<li>Data de Nascimento: ${result.birthdate}</li>`
-    contentTrainer.innerHTML += `<li>Cidade de Nascimento: ${result.city}</li>`
-    contentTrainer.innerHTML += `<li>Nome de Usuário: ${result.username}</li>`
-    contentTrainer.classList.toggle('remove');
+    contentTrainer.innerHTML =
+    `<li class="col-12 col-md-8 col-lg-6">
+        <div class="card trainer-card shadow-sm h-100" style="min-height: 50vh;">
+            <div class="card-body text-center d-flex flex-column justify-content-center">
+                <h3 class="card-title text-capitalize trainer-name mb-3">Nome: ${result.name}</h3>
+                <p class="card-text text-muted mb-2 fs-5">Sobrenome: ${result.lastname}</p>
+                <p class="card-text text-muted mb-2">Data de Nascimento: ${result.birthdate}</p>
+                <p class="card-text text-muted mb-2">Cidade de Nascimento: ${result.city}</p>
+                <p class="card-text text-muted mb-2">Nome de Usuário: <strong>${result.username}</strong></p>
+            </div>
+        </div>
+    </li>`;
 }
 initApp();
     
