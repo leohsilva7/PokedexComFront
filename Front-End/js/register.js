@@ -7,7 +7,7 @@ const passwordInput = document.getElementById('newpassword-id');
 const registerBtn = document.getElementById('register-btn');
 
 async function register() {
-    const url = "http://127.0.0.1:8000/api/signup";
+    const url = "https://pokedexcomfront.onrender.com/api/signup";
     try{
         const response = await fetch(url, {
             method: "POST",

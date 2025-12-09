@@ -4,7 +4,7 @@ const btnPast = document.getElementById('past-page');
 let count = 1;
 async function listPokemon(page) {
     const token = localStorage.getItem('auth_token');
-    const url = `http://127.0.0.1:8000/api/pokemon/list?page=${page}`;
+    const url = `https://pokedexcomfront.onrender.com/api/pokemon/list?page=${page}`;
     try{
         const response = await fetch (url,{
             method: "GET",

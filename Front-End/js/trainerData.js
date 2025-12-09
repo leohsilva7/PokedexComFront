@@ -3,7 +3,7 @@ const contentTrainer = document.getElementById('content-data');
 // Trainer Data
 async function getTrainerData() {
     const token = localStorage.getItem('auth_token');
-    const url = `http://127.0.0.1:8000/api/trainer/data`;
+    const url = `https://pokedexcomfront.onrender.com/api/trainer/data`;
     
     try{
         const response = await fetch(url, {

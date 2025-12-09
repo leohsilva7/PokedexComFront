@@ -3,7 +3,7 @@ const contentPokemon = document.getElementById('pokemon-data');
 const btnViewPokemon = document.getElementById('btn-view-pokemon');
 async function viewPokemon(value) {
     const token = localStorage.getItem('auth_token');
-    const url = `http://127.0.0.1:8000/api/pokemon/view?id=${value}`;
+    const url = `https://pokedexcomfront.onrender.com/api/pokemon/view?id=${value}`;
 
     try{
         const response = await fetch(url, {

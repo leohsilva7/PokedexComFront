@@ -61,7 +61,7 @@ function getPokemonData(){
 // Função de ler pokémon (consumo API)
 async function readPokemon(pokemonData) {
     const token = localStorage.getItem('auth_token');
-    const url = `http://127.0.0.1:8000/api/pokemon/read`;
+    const url = `https://pokedexcomfront.onrender.com/api/pokemon/read`;
     try{
         const response = await fetch(url, {
             method: "POST",

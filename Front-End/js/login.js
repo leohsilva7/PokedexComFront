@@ -5,7 +5,7 @@ async function login(){
     const usernameValue = usernameInput.value;
     const passwordValue = passwordInput.value;
 
-    const url = "http://127.0.0.1:8000/api/signin";
+    const url = "https://pokedexcomfront.onrender.com/api/signin";
     try{
         const response = await fetch(url, {
             method: "POST",

@@ -3,7 +3,7 @@ const messageLogout = document.getElementById('message-logout');
 
 async function logout() {
     const token = localStorage.getItem('auth_token');
-    const url = `http://127.0.0.1:8000/api/logout`;
+    const url = `https://pokedexcomfront.onrender.com/api/logout`;
     try{
         const response = await fetch (url, {
             method: "GET",
