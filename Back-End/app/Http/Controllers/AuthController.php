@@ -12,20 +12,22 @@ class AuthController extends Controller
 {
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validate = $request->validate([
             'name' => 'string|required|max:255',
-            'lastname' => 'string|string|max:255',
+            'lastname' => 'string|required|max:255',
             'birthdate' => 'required|date',
             'city' => 'required|string|max:255',
             'username' => 'required|string|max:255|unique:trainers,username',
             'password' => 'required|string|max:255|min:4',
+        ],
+        [
+            'string' => 'Não foi possível realizar seu cadastro na Pokédex devido a informações conflitantes de tipos de dados',
+            'date' => 'Não foi possível realizar seu cadastro na Pokédex devido a informações conflitantes de tipos de dados',
+            'required' => 'Não foi possível realizar seu cadastro na Pokédex devido à falta de informações',
+            'username.unique' => 'Não foi possível realizar seu cadastro na Pokédex devido ao seu cadastro já existir, prossiga para o login na sua Pokédex',
         ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'message' => 'Não foi possível realizar seu cadastro na Pokédex devido a informações conflitantes de tipos de dados'
-            ], 422);
-        }
+        
         $newTrainer = Trainer::create([
             'name' => $request->name,
             'lastname' => $request->lastname,
