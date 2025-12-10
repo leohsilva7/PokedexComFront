@@ -77,3 +77,14 @@
 .bg-fairy{
     background-color: #D685AD;
 }
+/*Read Pokemon Div Checkbox*/
+.check-box{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.check-input{
+    vertical-align: middle;
+    transform: translateY(2px);
+}

@@ -48,3 +48,4 @@ btnViewPokemon.addEventListener('click', async (event) => {
         </div>
     </li>`;
 });
+

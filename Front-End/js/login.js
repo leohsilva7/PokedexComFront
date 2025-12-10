@@ -1,4 +1,5 @@
 const btnGo = document.getElementById('btn-go');
+// const usernameInput = document.getElementById('username-id');
 const usernameInput = document.getElementById('username-id');
 const passwordInput = document.getElementById('password-id');
 async function login(){
