@@ -15,18 +15,19 @@ async function listPokemon(page) {
             }
         }); 
         if (response.status === 401 || response.status === 403){
-            console.error('Token inválido ou expirado');
+            alert('Token inválido ou expirado');
             localStorage.removeItem('auth_token');
+            window.location.href = "./index.html";
             return
         }
         if (!response.ok){
-            throw new Error(`Erro ao buscar dados: ${response.status}`);
+            alert(`Erro ao buscar dados: ${response.status}`);
         }
         const data = await response.json();
         return data;
     }
     catch (error){
-        console.error('Falha ao fazer requisição!', error.message);
+        alert('Falha ao fazer requisição!', error.message);
     }
 }
 async function initApp(numPage) {

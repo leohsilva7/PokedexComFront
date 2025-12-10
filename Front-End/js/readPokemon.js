@@ -74,13 +74,13 @@ async function readPokemon(pokemonData) {
         });
         if (!response.ok){
             const errorData = await response.json();
-            throw new Error(`Erro ao ler daddos do Pokémon! ${response.status}, ${errorData.message}`);
+            alert(`Erro ao ler daddos do Pokémon! ${response.status}, ${errorData.message}`);
         }
         const apiData = await response.json();
         return apiData;
     }
     catch(error){
-        console.error('Falha ao Adicionar dados de leitura na api', error.message);
+        alert('Falha ao Adicionar dados de leitura na api', error.message);
     }
 }
 

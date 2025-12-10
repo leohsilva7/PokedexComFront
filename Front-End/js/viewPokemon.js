@@ -15,18 +15,18 @@ async function viewPokemon(value) {
             }
         });
          if (response.status === 401 || response.status === 403){
-            console.error('Token inválido ou expirado');
+            alert('Token inválido ou expirado');
             localStorage.removeItem('auth_token');
             return
         }
         if (!response.ok){
-            throw new Error(`Erro ao buscar dados: ${response.status}`);
+            alert(`Erro ao buscar dados: ${response.status}`);
         }
         const data = await response.json();
         return data;
     }
     catch (error){
-        console.error(`Erro ao buscar dados: `, error.message);
+        alert(`Erro ao buscar dados: `, error.message);
     }
 }
 btnViewPokemon.addEventListener('click', async (event) => {

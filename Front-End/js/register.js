@@ -24,18 +24,18 @@ async function register() {
                 password: passwordInput.value,
             })
         });
-        if (!response.ok){
+        if (!response.ok || response.status === 422){
             const errorData = await response.json();
-            throw new Error(`Erro ao registrar: ${response.status} - ${errorData.message}`);
+            alert(`Erro ao registrar: ${response.status} - ${errorData.message}`);
+            return;
         }
-        const data = await response.json();
-        console.log('Registro bem sucedido!');
+        alert('Registro bem sucedido!');
         setTimeout(() => {
             window.location.href = './index.html';
         })
     }
     catch (error){
-        console.error('Falha na operção de registro', error.message);
+        alert('Falha na operção de registro', error.message);
     }
 }
 registerBtn.addEventListener('click', (event) => {

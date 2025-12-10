@@ -15,12 +15,12 @@ async function logout() {
         });
 
         if (response.status === 401 || response.status == 403){
-            console.error("Token inválido ou expirado");
+            alert("Token inválido ou expirado");
             localStorage.removeItem('auth_token');
             return;
         }
         if (!response.ok){
-            throw new Error(`Erro ao buscar dados: ${response.status}`)
+            alert(`Erro ao buscar dados: ${response.status}`)
         }
         const data = await response.json();
         alert(`${data.message}!`);
@@ -30,7 +30,7 @@ async function logout() {
         },300);
     }
     catch (error){
-        console.error(`Falha na requisição!`, error.message);
+        alert(`Falha na requisição!`, error.message);
     }
 }
 btnLogout.addEventListener('click', (event) => {

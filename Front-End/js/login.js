@@ -20,17 +20,18 @@ async function login(){
         });
         if (!response.ok){
             const errorData = await response.json();
-            throw new Error(`Erro de login: ${response.status} - ${errorData.message || 'Credenciais inválidas'}`)
+            alert(`Erro de login: ${response.status} - ${errorData.message || 'Credenciais inválidas'}`);
+            return;
         }
         const data = await response.json();
         if (data.token){
             localStorage.setItem('auth_token', data.token);
-            console.log('Login Bem-sucedido', data.token);
+            alert('Login Bem-sucedido');
             window.location.href = "./dashboard.html";
         }
-    }
+    }   
     catch (error){
-        console.error('Falha na operação de login: ', error.message);
+        alert('Falha na operação de login: ', error.message);
     }
 }
 
